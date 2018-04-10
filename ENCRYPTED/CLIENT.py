@@ -54,7 +54,7 @@ def transmit():         # функция отправки сообщения
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")    # запрашиваем текущие дату и время и задаём их формат
         print(now, 'You:', msg)       # выводим время и то, что написали
         msg_as_bytes = str.encode(msg)        # кодируем из строчного формата в битовый
-        msg_crypto = rsa.encrypt(msg_as_bytes, server_pubkey)   # зашифровываем публичным клучом
+        msg_crypto = rsa.encrypt(msg_as_bytes, server_pubkey)   # зашифровываем публичным ключом
         sock.send(msg_crypto)             # отсылаем сообщение
       
 t1 = threading.Thread(target=transmit)      # создаем потоки
